@@ -1,0 +1,36 @@
+{
+  "display_background_rgb": [
+    0.025,
+    0.029,
+    0.051
+  ],
+  "ray_step": 0.06,
+  "opacity_reference_step": 0.078,
+  "air_gain": 1.8,
+  "air_brightness": 2.2,
+  "camera_azimuth": 15,
+  "camera_elevation": 18,
+  "shared_parallel_scale": 5.65,
+  "focal_point": [
+    5,
+    5,
+    2.9
+  ],
+  "shape_dhw": [
+    151,
+    256,
+    256
+  ],
+  "spacing": 0.0392156862745098,
+  "coordinate_units": "normalized display units, not millimeters",
+  "source_sha256": "b15a1fe2ce2a8ceb12b23d7e6f4a792d6bced23196ebdcd2ab2a524bf24ce016",
+  "mask_voxels": 628327,
+  "display_only_mask": true,
+  "asset_sha256": {
+    "paper-display-volume-f16.bin": "87ed42f6713b31adf863ee4bc0fbf03053ce4a0e5271078335c29dde1da83abf",
+    "paper-display-tissue-f16.bin": "dc6b03a41dc7336471b25b6bf9e9110de924d2bc816b389d18ec47797d3d6051",
+    "paper-display-mask.bin": "2abe9bcd0801268c4ee714dd41e3f2807b6d472de94a779119b556ad892fadc7",
+    "paper-transfer-lut.bin": "f5ecd9e1786bd8f0ffc9231a842d3db1101baeb16cb6cc2274ca3b5b5abb3fb6",
+    "point-cloud.json": "5bc732153621e8672f68067938fe7ea38ee63d7fab351e5c6eeed6afe1bea5fe"
+  }
+}

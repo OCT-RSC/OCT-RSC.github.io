@@ -1,0 +1,70 @@
+{
+  "schema": "oct_policy_full_data_reproduction_v1",
+  "date": "2026-10-01",
+  "purpose": "End-to-end public-workflow verification on the complete phantom 3-DoF demonstration set",
+  "experiment": "phantom_point_cloud_with_residual_bc",
+  "data_profile": "official_3dof",
+  "inventory": {
+    "trajectories": 40,
+    "actions": 405,
+    "observations_including_initial": 445,
+    "training_trajectories": 32,
+    "validation_trajectories": 8,
+    "training_samples": 323,
+    "validation_samples": 82
+  },
+  "split_verification": {
+    "training_ids_equal_to_paper_run": true,
+    "validation_ids_equal_to_paper_run": true,
+    "paper_metadata_sha256": "2f910895625cf110480e16de1cbe4ab6880eaddc26ad2caff096253cc608a00d",
+    "public_metadata_sha256": "b563eec25d509496ba2e7227e091a1c6a06ae4fc411cd381f5ba6000b74a34d6",
+    "metadata_difference": "The public split explicitly records the four selected 3-DoF dataset prefixes; the trajectory IDs are unchanged."
+  },
+  "preprocessing_verification": {
+    "paper_cache_metadata_sha256": "9935aa7e5740e10b274bae8b6f337010598b7b2c33e99ad3dc8f80992d46f72a",
+    "public_cache_metadata_sha256": "ba65abd8994cc928ee3b7c2c819e936de597628ea5daae3928e3eb88a7480154",
+    "npy_files_in_each_cache": 485,
+    "relative_path_sets_equal": true,
+    "byte_identical_files": 485,
+    "mismatched_files": 0,
+    "metadata_difference": "Absolute manifest and split paths and the explicit prefix field change metadata hashes; all representation arrays are byte-identical."
+  },
+  "training": {
+    "epochs_completed": 67,
+    "best_epoch": 57,
+    "early_stopped": true,
+    "validation_selection_score": 0.025643400580762924,
+    "first_action_translation_rmse_mm": 0.4535619108834079,
+    "first_action_rotation_rmse_deg": 0.005874533631531107,
+    "horizon_translation_rmse_mm": 0.46497854242164094,
+    "horizon_rotation_rmse_deg": 0.005753083672747303,
+    "mean_inference_latency_ms": 1.665731528546752
+  },
+  "inference_checkpoint": {
+    "file_sha256": "6f257d3df83a113f599aa768c009cbbf039a0e1cc6abf33c8e88c93af64e6ef8",
+    "ema_tensor_sha256": "30d4f60db2a348f75b2efb986f53d02b2c707d94ad6fd39a68817a055fdb296d",
+    "exactly_matches_best_checkpoint_ema": true,
+    "tensor_count": 27,
+    "contains_training_state": false,
+    "offline_prediction_states": 82,
+    "output_shape_per_state": [8, 6],
+    "all_outputs_finite": true
+  },
+  "same_cache_checkpoint_comparison": {
+    "reference_first_action_translation_rmse_mm": 0.45396859197806594,
+    "retrained_first_action_translation_rmse_mm": 0.4535619108834079,
+    "retrained_minus_reference_translation_rmse_mm": -0.0004066810946580235,
+    "reference_validation_selection_score": 0.02568581967692201,
+    "retrained_validation_selection_score": 0.025643400580762924,
+    "retrained_minus_reference_selection_score": -0.00004241909615908604
+  },
+  "environment": {
+    "python": "3.12.11",
+    "numpy": "1.26.4",
+    "scipy": "1.16.2",
+    "pytorch": "2.10.0",
+    "cuda": "12.8",
+    "cudnn": "9.10.2",
+    "gpu": "NVIDIA A40"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "all_targets": true,
+  "case_count": 26,
+  "recorded_OCT_states": 338,
+  "same_state_RGB": 312,
+  "steps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "target_conditions": {
+    "depth": [
+      2,
+      2.5,
+      3,
+      3.5,
+      4,
+      4.5,
+      5
+    ],
+    "tilt": [
+      0,
+      22.5,
+      45,
+      67.5,
+      90,
+      112.5,
+      135,
+      157.5,
+      180
+    ],
+    "exvivo": [
+      2,
+      2.5,
+      3,
+      3.5,
+      4,
+      0,
+      22.5,
+      45,
+      67.5,
+      90
+    ]
+  },
+  "archive_sha256": "25e8765f22e9efe0289373030e1c05ba234e52395baf69a3e22a745fe309dde2",
+  "video_sha256": {
+    "depth": "8b0d93ed8e4a8492da868852238a94bcd38a86d31eb14599ba198637395983d7",
+    "tilt": "56b64b852aa997c4bbfba84ad566d4f57fcdea54f4029e6922e883540cf2ead7",
+    "exvivo": "8a268fb88542893b47578d676bd20149776d0a97f2ece2cdc9abbfb654562625"
+  },
+  "OCT_cropping": "None",
+  "RGB": "Whole context plus supplementary contact detail"
+}

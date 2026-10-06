@@ -1,0 +1,112 @@
+{
+  "depth": {
+    "video": "assets/all-targets-depth.mp4?v=20261006-all",
+    "poster": "assets/all-targets-depth-poster.png?v=20261006-all",
+    "description": "Seven depths \u00b7 2.0\u20135.0 mm \u00b7 every recorded step.",
+    "note": "",
+    "target_values": [
+      2,
+      2.5,
+      3,
+      3.5,
+      4,
+      4.5,
+      5
+    ],
+    "recorded_steps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "case_count": 7,
+    "resolution": [
+      3840,
+      2160
+    ]
+  },
+  "tilt": {
+    "video": "assets/all-targets-tilt.mp4?v=20261006-all",
+    "poster": "assets/all-targets-tilt-poster.png?v=20261006-all",
+    "description": "Nine directions \u00b7 0\u2013180\u00b0 \u00b7 every recorded step.",
+    "note": "",
+    "target_values": [
+      0,
+      22.5,
+      45,
+      67.5,
+      90,
+      112.5,
+      135,
+      157.5,
+      180
+    ],
+    "recorded_steps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "case_count": 9,
+    "resolution": [
+      3840,
+      2160
+    ]
+  },
+  "exvivo": {
+    "video": "assets/all-targets-exvivo.mp4?v=20261006-all",
+    "poster": "assets/all-targets-exvivo-poster.png?v=20261006-all",
+    "description": "Five depth and five directional targets \u00b7 every recorded step.",
+    "note": "",
+    "target_values": [
+      2,
+      2.5,
+      3,
+      3.5,
+      4,
+      0,
+      22.5,
+      45,
+      67.5,
+      90
+    ],
+    "recorded_steps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "case_count": 10,
+    "resolution": [
+      3840,
+      2160
+    ]
+  }
+}

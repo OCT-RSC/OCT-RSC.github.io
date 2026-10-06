@@ -1,0 +1,14 @@
+{
+  "igmr": {
+    "url": "https://medical.robotics.umich.edu/img/igmr-v3-horiz-path-white.svg",
+    "file": "igmr-lab.svg",
+    "sha256": "4ebe03f00a8ef233d97b5f759e2735839d16ad4bac3421473a0ee43a79f64fe8",
+    "changes": "None; official white logo displayed on navy."
+  },
+  "robotics": {
+    "url": "https://robotics.umich.edu/",
+    "file": "michigan-robotics.svg",
+    "sha256": "98668bc4ce2fd7cab9e22094409458029596ffc70af45275125550b5354b3a25",
+    "changes": "Official SVG paths retained; CSS colors made explicit for standalone display."
+  }
+}
