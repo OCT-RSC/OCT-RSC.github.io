@@ -270,8 +270,7 @@
               >Source code</a
             >
             <span
-              >Training and inference release candidate, with configurations and
-              documentation.</span
+              >PyTorch implementation with training configurations.</span
             >
           </li>
           <li>
@@ -279,21 +278,15 @@
               >Small prepared dataset</a
             >
             <span
-              >Two real demonstrations for a point-cloud pipeline check; not the
-              complete dataset.</span
+              >Two real demonstrations for a short Point-cloud training run.</span
             >
           </li>
         </ul>
         <details class="technical-details">
-          <summary>Installation and verification</summary>
+          <summary>Quickstart</summary>
           <p>
-            Download the
-            <a
-              href="downloads/oct_tissue_policy-0.1.0-py3-none-any.whl"
-              download
-              >Python wheel</a
-            >
-            and small dataset into the same directory, then run:
+            Download the source code and small dataset into the same directory,
+            then run:
           </p>
           <div class="code-heading">
             <span>Python 3.10 or newer</span
@@ -301,25 +294,21 @@
           </div>
           <pre
             id="quickstart"
-          ><code>python -m pip install ./oct_tissue_policy-0.1.0-py3-none-any.whl
+          ><code>tar -xzf oct-policy-source.tar.gz
 tar -xzf mini-point-cloud.tar.gz
+cd oct_policy_open_source_release
+python -m pip install -r requirements.txt
 
-oct-policy smoke \
-  --prepared mini_prepared_public_candidate_v2 \
-  --experiment phantom_point_cloud_with_residual_bc \
-  --verify-all-cache-files \
-  --device cpu</code></pre>
+python train_policy.py \
+  --prepared ../mini_prepared_public_candidate_v2 \
+  --config configs/phantom_point_residual_bc.json \
+  --output outputs/mini --epochs 1</code></pre>
           <p class="small-note">
-            This checks cache integrity and model input/output contracts with a
-            randomly initialized policy. It is not an evaluation of a trained
-            checkpoint. Training and checkpoint evaluation commands are included
-            in the source documentation.
+            This one-epoch example runs training and validation. Full training
+            and inference commands are in the source README.
           </p>
           <p class="small-note">
-            <a href="downloads/verification.json" download
-              >Full-data verification report</a
-            >
-            · <a href="downloads/checksums.txt">File checksums</a>
+            <a href="downloads/checksums.txt">File checksums</a>
           </p>
         </details>
       </section>

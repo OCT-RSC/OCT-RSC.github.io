@@ -50,12 +50,9 @@ Array shapes, transfer-function settings, and asset hashes are recorded in
 - The manuscript and method figure come from the project paper.
 - `assets/logo-sources.json` records the official IGMR Lab and Michigan
   Robotics wordmark sources and their checksums.
-- The prepared training example contains two demonstrations, not the complete
-  dataset. The smoke command checks input/output contracts with an untrained
-  model; it does not evaluate a trained checkpoint.
-- `downloads/verification.json` reports a separate full-data point-cloud
-  training-pipeline check. Its action-prediction errors are not the deployment
-  Shape RMSE values reported on the page.
+- The prepared training example contains two demonstrations. The quickstart
+  runs one epoch of Point-cloud training and validation, not a full
+  paper-performance experiment.
 
 No previous video drafts, local transfer logs, remote-machine credentials,
 or raw OCT acquisition folders are included in this repository.

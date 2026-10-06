@@ -31,7 +31,7 @@ dependency.
 | `MEDIA.md`            | Visualization scope and asset provenance                        |
 
 The website and the research-policy package are separate. The research code
-is currently distributed as a downloadable archive and wheel; this repository
+is distributed as a downloadable source archive; this repository
 does not contain robot credentials, raw acquisition directories, or trained
 checkpoints.
 
