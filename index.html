@@ -22,9 +22,9 @@
       type="image/svg+xml"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23293847'/%3E%3Cpath d='M5 10Q16 28 27 10M5 17Q16 30 27 17' fill='none' stroke='%239fbce4' stroke-width='2'/%3E%3Cpath d='M16 3v12' stroke='%23f0ab95' stroke-width='2'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="styles.css?v=20261006b" />
-    <script defer src="app.js?v=20261006-all"></script>
-    <script defer src="volume-viewer.js?v=20261006-reproduction"></script>
+    <link rel="stylesheet" href="styles.css?v=20261006-clear" />
+    <script defer src="app.js?v=20261006-clear"></script>
+    <script defer src="volume-viewer.js?v=20261006-clear"></script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -102,10 +102,6 @@
         aria-labelledby="demo-title"
       >
         <h2 id="demo-title">Closed-loop tissue deformation</h2>
-        <p class="section-intro">
-          Recorded RGB views and OCT observations, overlaid with the fixed
-          target.
-        </p>
         <div class="tabs demo-tabs" role="tablist" aria-label="Experiment">
           <button role="tab" aria-selected="true" data-demo="depth">
             Phantom depth
@@ -143,7 +139,8 @@
         </div>
         <div class="demo-caption">
           <p id="demo-description">
-            The robot acquires a new OCT volume after each action.
+            Closed-loop phantom deformation toward different target depths.
+            Blue: observation; salmon: target. RGB shows the same recorded step.
           </p>
         </div>
         <p class="small-note" id="recording-note" hidden></p>

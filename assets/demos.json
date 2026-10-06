@@ -2,7 +2,7 @@
   "depth": {
     "video": "assets/all-targets-depth.mp4?v=20261006-all",
     "poster": "assets/all-targets-depth-poster.png?v=20261006-all",
-    "description": "Seven depths \u00b7 2.0\u20135.0 mm \u00b7 every recorded step.",
+    "description": "Closed-loop phantom deformation toward different target depths. Blue: observation; salmon: target. RGB shows the same recorded step.",
     "note": "",
     "target_values": [
       2,
@@ -37,7 +37,7 @@
   "tilt": {
     "video": "assets/all-targets-tilt.mp4?v=20261006-all",
     "poster": "assets/all-targets-tilt-poster.png?v=20261006-all",
-    "description": "Nine directions \u00b7 0\u2013180\u00b0 \u00b7 every recorded step.",
+    "description": "Closed-loop phantom deformation toward different tilt directions. Blue: observation; salmon: target. RGB shows the same recorded step.",
     "note": "",
     "target_values": [
       0,
@@ -74,7 +74,7 @@
   "exvivo": {
     "video": "assets/all-targets-exvivo.mp4?v=20261006-all",
     "poster": "assets/all-targets-exvivo-poster.png?v=20261006-all",
-    "description": "Five depth and five directional targets \u00b7 every recorded step.",
+    "description": "Closed-loop ex vivo deformation toward depth and directional targets. Blue: observation; salmon: target. RGB shows the same recorded step.",
     "note": "",
     "target_values": [
       2,

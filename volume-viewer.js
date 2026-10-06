@@ -48,7 +48,7 @@
     uniform vec3 background;
     void main(){
       vec3 plane=scale*(screen.x*aspect*right+screen.y*up);
-      float zmax=150.*spacing;
+      float zmax=255.*spacing;
       float lateral=5.*(abs(normal.x)+abs(normal.y));
       float nearDepth=lateral+max(normal.z*focalZ,normal.z*(focalZ-zmax));
       float farDepth=-lateral+min(normal.z*focalZ,normal.z*(focalZ-zmax));
@@ -59,7 +59,7 @@
         vec3 p=plane+normal*depth;
         vec3 world=vec3(p.xy+5.,focalZ-p.z);
         if(any(lessThan(world,vec3(0.)))||any(greaterThan(world,vec3(10.,10.,zmax)))) continue;
-        vec3 uv=(world/spacing+.5)/vec3(256.,256.,151.);
+        vec3 uv=(world/spacing+.5)/vec3(256.,256.,256.);
         float value=texture(intensity,uv).r;
         float mask=texture(support,uv).r;
         if(tissueOnly){
@@ -68,6 +68,9 @@
         int index=int(clamp((value+6.)/11.*4095.,0.,4095.));
         vec4 lut=texelFetch(transfer,ivec2(index,0),0);
         float air=texelFetch(transfer,ivec2(index,1),0).r;
+        // Keep measured air throughout the cube while suppressing bright
+        // non-tissue filaments/plate returns in the background opacity only.
+        air*=1.-smoothstep(.3,1.,value);
         float referenceAlpha=tissueOnly?lut.a*mask:lut.a*mask+air*airGain*(1.-mask);
         float opacity=1.-pow(1.-clamp(referenceAlpha,0.,.95),stepSize/referenceStep);
         vec3 rgb=tissueOnly?lut.rgb:clamp(lut.rgb*(mask+(1.-mask)*airBrightness),0.,1.);
@@ -83,8 +86,8 @@
     in vec3 position; uniform vec3 right; uniform vec3 up; uniform vec3 normal;
     uniform float scale; uniform float aspect; uniform float pointSize; uniform float focalZ;
     void main(){
-      // XYZ normalized on the full scanner grid; use the same crop center as
-      // the 151-depth display volume. Never independently fit point bounds.
+      // XYZ normalized on the full scanner grid. All modes share its center;
+      // never independently fit point bounds.
       vec3 p=vec3(position.xy*5.,focalZ-(position.z+1.)*5.);
       gl_Position=vec4(dot(p,right)/(scale*aspect),dot(p,up)/scale,-dot(p,normal)/24.,1.);
       gl_PointSize=pointSize;
@@ -120,7 +123,7 @@
   const corners = [];
   for (const x of [0, 10])
     for (const y of [0, 10])
-      for (const z of [0, (150 * 10) / 255]) corners.push([x, y, z]);
+      for (const z of [0, 10]) corners.push([x, y, z]);
   const edges = [];
   for (let i = 0; i < 8; i++)
     for (let j = i + 1; j < 8; j++)
@@ -135,10 +138,10 @@
   let active = "full",
     azimuth = (15 * Math.PI) / 180,
     elevation = (18 * Math.PI) / 180,
-    scale = 5.65;
+    scale = 6.8;
   let style = {
     display_background_rgb: [0.025, 0.029, 0.051],
-    focal_point: [5, 5, 2.9],
+    focal_point: [5, 5, 5],
     spacing: 10 / 255,
     ray_step: 0.06,
     opacity_reference_step: 0.078,
@@ -173,7 +176,7 @@
       half ? gl.R16F : gl.R8,
       256,
       256,
-      151,
+      256,
       0,
       gl.RED,
       half ? gl.HALF_FLOAT : gl.UNSIGNED_BYTE,
@@ -182,7 +185,7 @@
     return t;
   }
   async function binary(name, length) {
-    const response = await fetch("assets/" + name);
+    const response = await fetch("assets/" + name + "?v=20261006-clear");
     if (!response.ok) throw new Error("OCT display data unavailable");
     const bytes = new Uint8Array(await response.arrayBuffer());
     if (bytes.length !== length)
@@ -190,13 +193,13 @@
     return bytes;
   }
   function loadVolume() {
-    const size = 256 * 256 * 151;
+    const size = 256 * 256 * 256;
     return (volumePending ||= Promise.all([
       binary("paper-display-volume-f16.bin", size * 2),
       binary("paper-display-tissue-f16.bin", size * 2),
       binary("paper-display-mask.bin", size),
       binary("paper-transfer-lut.bin", 4096 * 2 * 4 * 4),
-      fetch("assets/paper-render-style.json").then((r) => r.json()),
+      fetch("assets/paper-render-style.json?v=20261006-clear").then((r) => r.json()),
     ]).then(([volume, tissue, mask, lut, settings]) => {
       style = settings;
       volumeTexture = texture(
@@ -416,9 +419,19 @@
   document.querySelector("#reset-view").addEventListener("click", () => {
     azimuth = (15 * Math.PI) / 180;
     elevation = (18 * Math.PI) / 180;
-    scale = 5.65;
+    scale = 6.8;
     invalidate();
   });
   new ResizeObserver(invalidate).observe(canvas);
-  select("full");
+  // Do not make the larger interactive arrays compete with the opening video.
+  const visible = new IntersectionObserver(
+    (entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        visible.disconnect();
+        select(active);
+      }
+    },
+    { rootMargin: "160px" },
+  );
+  visible.observe(canvas);
 })();

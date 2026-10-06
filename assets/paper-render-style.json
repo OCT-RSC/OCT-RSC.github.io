@@ -10,27 +10,33 @@
   "air_brightness": 2.2,
   "camera_azimuth": 15,
   "camera_elevation": 18,
-  "shared_parallel_scale": 5.65,
+  "shared_parallel_scale": 6.8,
   "focal_point": [
     5,
     5,
-    2.9
+    5
   ],
   "shape_dhw": [
-    151,
+    256,
     256,
     256
   ],
   "spacing": 0.0392156862745098,
   "coordinate_units": "normalized display units, not millimeters",
   "source_sha256": "b15a1fe2ce2a8ceb12b23d7e6f4a792d6bced23196ebdcd2ab2a524bf24ce016",
-  "mask_voxels": 628327,
+  "mask_voxels": 618637,
   "display_only_mask": true,
   "asset_sha256": {
-    "paper-display-volume-f16.bin": "87ed42f6713b31adf863ee4bc0fbf03053ce4a0e5271078335c29dde1da83abf",
-    "paper-display-tissue-f16.bin": "dc6b03a41dc7336471b25b6bf9e9110de924d2bc816b389d18ec47797d3d6051",
-    "paper-display-mask.bin": "2abe9bcd0801268c4ee714dd41e3f2807b6d472de94a779119b556ad892fadc7",
+    "paper-display-volume-f16.bin": "f29e65e8cd98b840abb5518f52d8c0b005b7e7d3b8207ab25926818b003ef41b",
+    "paper-display-tissue-f16.bin": "5c2f01e7e8e9e67ba90dbc48bc05128f309f77e7f9f83d5dcd5c7dcfe29baaf8",
+    "paper-display-mask.bin": "046beafa53ce37da02c123130642d9d097984d9c3d20acdbc0aa59bd1d6b104b",
     "paper-transfer-lut.bin": "f5ecd9e1786bd8f0ffc9231a842d3db1101baeb16cb6cc2274ca3b5b5abb3fb6",
     "point-cloud.json": "5bc732153621e8672f68067938fe7ea38ee63d7fab351e5c6eeed6afe1bea5fe"
-  }
+  },
+  "depth_crop": null,
+  "display_depth_indices": [
+    0,
+    255
+  ],
+  "display_filament_cleanup": "Largest two-voxel-eroded body, restored by two-voxel dilation within the original display mask"
 }

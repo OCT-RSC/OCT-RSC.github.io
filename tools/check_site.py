@@ -114,10 +114,11 @@ def check_videos():
 
 def check_viewer():
     style = json.loads((ASSETS / "paper-render-style.json").read_text())
-    require(style["shape_dhw"] == [151, 256, 256], "Unexpected display volume shape")
-    require(style["shared_parallel_scale"] == 5.65, "Shared camera scale changed")
+    require(style["shape_dhw"] == [256, 256, 256], "Unexpected display volume shape")
+    require(style["depth_crop"] is None, "Display volume is unexpectedly cropped")
+    require(style["shared_parallel_scale"] == 6.8, "Shared camera scale changed")
     require(style["display_only_mask"] is True, "Display-mask scope is not recorded")
-    require(style["mask_voxels"] == 628327, "Display-mask voxel count changed")
+    require(style["mask_voxels"] == 618637, "Display-mask voxel count changed")
     voxel_count = math.prod(style["shape_dhw"])
     for name in ("paper-display-volume-f16.bin", "paper-display-tissue-f16.bin"):
         data = (ASSETS / name).read_bytes()
@@ -201,7 +202,7 @@ def main():
     inventory = check_published_content()
     print(json.dumps({"status": "passed", "local_links": links, "downloads": downloads,
                       "video_cases": 26, "OCT_states": 338, "paired_RGB": 312,
-                      "point_cloud_samples": 1024, "display_mask_voxels": 628327,
+                      "point_cloud_samples": 1024, "display_mask_voxels": 618637,
                       **inventory}, indent=2))
 
 

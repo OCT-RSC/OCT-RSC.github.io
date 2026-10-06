@@ -24,11 +24,17 @@ repeats. Coverage and video hashes are recorded in
 ## Interactive representations
 
 The Full-volume and Tissue-masked views ray-cast the saved normalized OCT
-intensities, cropped to depth indices 0–150. Float16 transport retains the
+intensities over the complete 256 × 256 × 256 saved cube, including depth
+indices 0–255. There is no additional display-depth crop. Float16 transport retains the
 stored source intensities. Color and opacity follow the paper illustration's
-reproduction package. The mask contains 628,327 voxels and is refined for
-display; it is **not** the sparse policy input mask. No synthetic background
-noise is added.
+reproduction package. The display-mask extraction is applied to the
+complete cube. Narrow filaments are removed by retaining the largest
+two-voxel-eroded body and restoring its boundary within the original mask;
+this avoids a flat depth cutoff. The resulting 618,637-voxel mask is refined
+for display; it is **not** the sparse policy input mask. OCT intensities are
+unchanged and no synthetic background noise is added.
+Bright non-tissue returns are suppressed by the background-opacity mapping,
+while measured low-intensity air remains visible throughout the cube.
 
 The Point-cloud view displays the saved 1,024 model samples. All three views
 share one coordinate mapping, camera direction, and zoom. Coordinates are
