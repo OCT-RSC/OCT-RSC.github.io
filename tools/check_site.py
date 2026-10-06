@@ -91,9 +91,14 @@ def check_videos():
     require(set(demos) == {"depth", "tilt", "exvivo"}, "Incorrect experiment tabs")
     require(media["all_targets"] and media["case_count"] == 26,
             "Incorrect demonstration coverage")
-    require(media["recorded_OCT_states"] == 338 and media["same_state_RGB"] == 312,
+    require(media["source_OCT_states"] == 338 and
+            media["paired_video_OCT_states"] == media["same_state_RGB"] == 312,
             "Incorrect recorded-state counts")
-    require(media["steps"] == list(range(13)), "Missing recorded OCT steps")
+    require(media["steps"] == list(range(1, 13)), "Missing paired post-action steps")
+    require(media["OCT_render_resolution"] == [1056, 764], "Incorrect OCT render size")
+    require(min(media["font_pixels"].values()) >= 48, "Video labels are too small")
+    require(media["RGB_panel_fraction"] == {"side": .32, "bottom": .34},
+            "Incorrect RGB panel layout")
     conditions = {
         "depth": [2, 2.5, 3, 3.5, 4, 4.5, 5],
         "tilt": [0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180],
@@ -104,12 +109,14 @@ def check_videos():
         require(demo["target_values"] == values == media["target_conditions"][key],
                 f"Incomplete target coverage: {key}")
         require(demo["case_count"] == len(values), f"Incorrect case count: {key}")
-        require(demo["recorded_steps"] == list(range(13)), f"Missing steps: {key}")
+        require(demo["recorded_steps"] == list(range(1, 13)), f"Missing steps: {key}")
         require(demo["resolution"] == [3840, 2160], f"Incorrect export resolution: {key}")
         require(digest(site_file(demo["video"])) == media["video_sha256"][key],
                 f"Video checksum changed: {key}")
         require(site_file(demo["poster"]).stat().st_size > 1000,
                 f"Missing video poster: {key}")
+        require(digest(site_file(demo["poster"])) == media["poster_sha256"][key],
+                f"First paired-state poster changed: {key}")
 
 
 def check_viewer():
@@ -136,6 +143,20 @@ def check_viewer():
     require(len(points["positions"]) == 1024 * 3, "Point-cloud sample count changed")
     require(all(math.isfinite(value) and -1.001 <= value <= 1.001
                 for value in points["positions"]), "Invalid normalized point coordinates")
+    require(points.get("displayOnly") is True and points.get("seed") == 42,
+            "Point-display sampling scope is not recorded")
+    require(points.get("mask_sha256") == digest(ASSETS / "paper-display-mask.bin"),
+            "Point display does not use the tissue display mask")
+    sites = set()
+    for offset in range(0, len(points["positions"]), 3):
+        w, h, d = [round((value + 1) * 255 / 2)
+                   for value in points["positions"][offset:offset+3]]
+        require(0 <= d < 256 and 0 <= h < 256 and 0 <= w < 256,
+                "Point display lies outside the scanner lattice")
+        site = (d * 256 + h) * 256 + w
+        require(mask[site] == 1, "Point display includes a non-tissue site")
+        sites.add(site)
+    require(len(sites) == 1024, "Duplicate point-display sites")
     for name, expected in style["asset_sha256"].items():
         require(digest(ASSETS / name) == expected, f"Viewer asset checksum changed: {name}")
     logos = json.loads((ASSETS / "logo-sources.json").read_text())
@@ -201,7 +222,8 @@ def main():
     check_viewer()
     inventory = check_published_content()
     print(json.dumps({"status": "passed", "local_links": links, "downloads": downloads,
-                      "video_cases": 26, "OCT_states": 338, "paired_RGB": 312,
+                      "video_cases": 26, "source_OCT_states": 338,
+                      "paired_video_OCT_states": 312, "paired_RGB": 312,
                       "point_cloud_samples": 1024, "display_mask_voxels": 618637,
                       **inventory}, indent=2))
 

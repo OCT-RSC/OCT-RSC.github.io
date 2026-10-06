@@ -10,14 +10,18 @@ The three experiment tabs show one selected deployment for each target:
 | Phantom tilt direction | 0–180° in 22.5° increments                      |            9 |
 | Ex vivo                | Five depths, 2.0–4.0 mm; five directions, 0–90° |           10 |
 
-Each video includes every saved OCT state, steps 0–12, held for one second
-per state. These are recorded states, not interpolated motion or real-time
-execution. RGB frames accompany their corresponding post-action state; no
-initial RGB frame is invented. Each cell shows the OCT target overlay, RGB
-context, and a separate interaction-detail crop. The OCT render is not cropped.
+Each video includes every saved post-action state, steps 1–12, held for one
+second per state. OCT and RGB use the same saved step, and RGB is present
+from the first video frame. The initial OCT remains in the render cache but
+is not shown in these paired videos because no initial RGB was recorded.
+These are recorded states, not interpolated motion or real-time execution.
+Each cell shows the OCT target overlay, RGB context, and a separate
+interaction-detail crop. The OCT render is not cropped. The 4K exports use
+1056 × 764 OCT renders and labels of at least 48 pixels.
 
-The exports contain 26 trajectories, 338 OCT states, and 312 post-action RGB
-frames. They illustrate target coverage, not all configurations or deployment
+The source cache contains 26 trajectories and 338 OCT states. The paired
+videos show 312 post-action OCT states with 312 matching RGB frames.
+They illustrate target coverage, not all configurations or deployment
 repeats. Coverage and video hashes are recorded in
 `assets/media-verification.json`; `assets/demos.json` supplies the page links.
 
@@ -36,7 +40,9 @@ unchanged and no synthetic background noise is added.
 Bright non-tissue returns are suppressed by the background-opacity mapping,
 while measured low-intensity air remains visible throughout the cube.
 
-The Point-cloud view displays the saved 1,024 model samples. All three views
+The Point-cloud view samples 1,024 distinct locations from the same refined
+tissue display mask, using seed 42. This removes non-tissue filaments from
+the illustration without changing the saved model inputs. All three views
 share one coordinate mapping, camera direction, and zoom. Coordinates are
 normalized display units, not millimeters. Switching modes does not independently
 fit or recenter the geometry. Browser WebGL rendering is not claimed to be

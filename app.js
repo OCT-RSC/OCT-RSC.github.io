@@ -51,7 +51,7 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
 const demos = {};
 async function initializeDemos() {
   try {
-    const response = await fetch("assets/demos.json?v=20261006-clear", {
+    const response = await fetch("assets/demos.json?v=20261006-refined", {
       cache: "no-store",
     });
     if (!response.ok) throw new Error("Video index unavailable");

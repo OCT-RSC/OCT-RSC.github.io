@@ -31,12 +31,13 @@
     "paper-display-tissue-f16.bin": "5c2f01e7e8e9e67ba90dbc48bc05128f309f77e7f9f83d5dcd5c7dcfe29baaf8",
     "paper-display-mask.bin": "046beafa53ce37da02c123130642d9d097984d9c3d20acdbc0aa59bd1d6b104b",
     "paper-transfer-lut.bin": "f5ecd9e1786bd8f0ffc9231a842d3db1101baeb16cb6cc2274ca3b5b5abb3fb6",
-    "point-cloud.json": "5bc732153621e8672f68067938fe7ea38ee63d7fab351e5c6eeed6afe1bea5fe"
+    "point-cloud.json": "eeee14cb83feb6ed13e9e767d71193f59b78b38550fdd140d217f34cc14104c7"
   },
   "depth_crop": null,
   "display_depth_indices": [
     0,
     255
   ],
-  "display_filament_cleanup": "Largest two-voxel-eroded body, restored by two-voxel dilation within the original display mask"
+  "display_filament_cleanup": "Largest two-voxel-eroded body, restored by two-voxel dilation within the original display mask",
+  "point_cloud_display": "1024 distinct samples from the same refined tissue display mask"
 }

@@ -1,7 +1,7 @@
 {
   "depth": {
-    "video": "assets/all-targets-depth.mp4?v=20261006-all",
-    "poster": "assets/all-targets-depth-poster.png?v=20261006-all",
+    "video": "assets/all-targets-depth.mp4?v=20261006-refined",
+    "poster": "assets/all-targets-depth-poster.png?v=20261006-refined",
     "description": "Closed-loop phantom deformation toward different target depths. Blue: observation; salmon: target. RGB shows the same recorded step.",
     "note": "",
     "target_values": [
@@ -14,7 +14,6 @@
       5
     ],
     "recorded_steps": [
-      0,
       1,
       2,
       3,
@@ -32,11 +31,16 @@
     "resolution": [
       3840,
       2160
+    ],
+    "duration_seconds": 12,
+    "OCT_render_resolution": [
+      1056,
+      764
     ]
   },
   "tilt": {
-    "video": "assets/all-targets-tilt.mp4?v=20261006-all",
-    "poster": "assets/all-targets-tilt-poster.png?v=20261006-all",
+    "video": "assets/all-targets-tilt.mp4?v=20261006-refined",
+    "poster": "assets/all-targets-tilt-poster.png?v=20261006-refined",
     "description": "Closed-loop phantom deformation toward different tilt directions. Blue: observation; salmon: target. RGB shows the same recorded step.",
     "note": "",
     "target_values": [
@@ -51,7 +55,6 @@
       180
     ],
     "recorded_steps": [
-      0,
       1,
       2,
       3,
@@ -69,11 +72,16 @@
     "resolution": [
       3840,
       2160
+    ],
+    "duration_seconds": 12,
+    "OCT_render_resolution": [
+      1056,
+      764
     ]
   },
   "exvivo": {
-    "video": "assets/all-targets-exvivo.mp4?v=20261006-all",
-    "poster": "assets/all-targets-exvivo-poster.png?v=20261006-all",
+    "video": "assets/all-targets-exvivo.mp4?v=20261006-refined",
+    "poster": "assets/all-targets-exvivo-poster.png?v=20261006-refined",
     "description": "Closed-loop ex vivo deformation toward depth and directional targets. Blue: observation; salmon: target. RGB shows the same recorded step.",
     "note": "",
     "target_values": [
@@ -89,7 +97,6 @@
       90
     ],
     "recorded_steps": [
-      0,
       1,
       2,
       3,
@@ -107,6 +114,11 @@
     "resolution": [
       3840,
       2160
+    ],
+    "duration_seconds": 12,
+    "OCT_render_resolution": [
+      1056,
+      764
     ]
   }
 }

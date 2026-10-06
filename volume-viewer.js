@@ -199,7 +199,7 @@
       binary("paper-display-tissue-f16.bin", size * 2),
       binary("paper-display-mask.bin", size),
       binary("paper-transfer-lut.bin", 4096 * 2 * 4 * 4),
-      fetch("assets/paper-render-style.json?v=20261006-clear").then((r) => r.json()),
+      fetch("assets/paper-render-style.json?v=20261006-refined").then((r) => r.json()),
     ]).then(([volume, tissue, mask, lut, settings]) => {
       style = settings;
       volumeTexture = texture(
@@ -235,7 +235,7 @@
     }));
   }
   function loadPoints() {
-    return (pointPending ||= fetch("assets/point-cloud.json")
+    return (pointPending ||= fetch("assets/point-cloud.json?v=20261006-refined")
       .then((r) => {
         if (!r.ok) throw new Error("Points unavailable");
         return r.json();

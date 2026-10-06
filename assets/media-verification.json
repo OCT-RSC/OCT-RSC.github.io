@@ -1,10 +1,10 @@
 {
   "all_targets": true,
   "case_count": 26,
-  "recorded_OCT_states": 338,
+  "source_OCT_states": 338,
+  "paired_video_OCT_states": 312,
   "same_state_RGB": 312,
   "steps": [
-    0,
     1,
     2,
     3,
@@ -52,12 +52,38 @@
       90
     ]
   },
-  "archive_sha256": "25e8765f22e9efe0289373030e1c05ba234e52395baf69a3e22a745fe309dde2",
+  "archive_sha256": "84ea79bdec5d9867285b82ce75a44394fab2dc9111bd3422446999d5e122ceea",
   "video_sha256": {
-    "depth": "8b0d93ed8e4a8492da868852238a94bcd38a86d31eb14599ba198637395983d7",
-    "tilt": "56b64b852aa997c4bbfba84ad566d4f57fcdea54f4029e6922e883540cf2ead7",
-    "exvivo": "8a268fb88542893b47578d676bd20149776d0a97f2ece2cdc9abbfb654562625"
+    "depth": "68977d921fedc077ce0cb641b3f5df3facb5ab58aaf747461da5aa640379723d",
+    "tilt": "ba69b708745da4fb7f4f253b4ed326667bed1a4f6940a0f07f0d429969e82ac5",
+    "exvivo": "ee9a01d7923026f4ccfe34ba9661c2c40aaca01927ff84b407e2ab6ef94978d1"
   },
+  "poster_sha256": {
+    "depth": "8be68beb3bd4f6b38db762775cf173d9f1bb92464337ae10f2be4386e4c91766",
+    "tilt": "d5e020250af2306f66a988255259b1e89a486fdbe48a0459af61971704be68bd",
+    "exvivo": "662cb7bc4f4575d94b2ba8dde381b9e476f418c30c467364a497793d23370a50"
+  },
+  "resolution": [
+    3840,
+    2160
+  ],
+  "OCT_render_resolution": [
+    1056,
+    764
+  ],
+  "font_pixels": {
+    "heading": 60,
+    "target": 58,
+    "RGB_labels": 48
+  },
+  "frames_per_video": 360,
+  "fps": 30,
+  "duration_seconds": 12,
   "OCT_cropping": "None",
-  "RGB": "Whole context plus supplementary contact detail"
+  "RGB_panel_fraction": {
+    "side": 0.32,
+    "bottom": 0.34
+  },
+  "RGB": "Same saved post-action state as OCT, present from the first video frame",
+  "initial_state": "Initial OCT is retained in the source render cache; the paired video begins at step 1 because no initial RGB was recorded"
 }
