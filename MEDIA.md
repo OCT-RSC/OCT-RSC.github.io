@@ -53,7 +53,7 @@ Array shapes, transfer-function settings, and asset hashes are recorded in
 
 ## Other assets
 
-- The manuscript and method figure come from the project paper.
+- The method figure comes from the project paper.
 - `assets/logo-sources.json` records the official IGMR Lab and Michigan
   Robotics wordmark sources and their checksums.
 

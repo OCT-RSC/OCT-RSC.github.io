@@ -74,11 +74,9 @@ def check_page():
 
 def check_downloads():
     files = sorted(path for path in DOWNLOADS.iterdir() if path.is_file())
-    require({path.name for path in files} == {"paper.pdf", "oct-policy-source.tar.gz"},
+    require({path.name for path in files} == {"oct-policy-source.tar.gz"},
             "Unexpected download inventory")
     require(all(path.stat().st_size > 0 for path in files), "Empty download")
-    with (DOWNLOADS / "paper.pdf").open("rb") as stream:
-        require(stream.read(5) == b"%PDF-", "Invalid manuscript PDF")
     return len(files)
 
 

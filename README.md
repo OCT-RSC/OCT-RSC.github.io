@@ -26,7 +26,7 @@ dependency.
 | `app.js`              | Experiment tabs, results table, and copy controls               |
 | `volume-viewer.js`    | Interactive WebGL 2 volume and point-cloud viewer               |
 | `assets/`             | Published videos, viewer arrays, figures, and affiliation logos |
-| `downloads/`          | Manuscript and research-code package                           |
+| `downloads/`          | Research-code package                                          |
 | `tools/check_site.py` | Link, checksum, input-array, and media-coverage checks          |
 | `MEDIA.md`            | Visualization scope and asset provenance                        |
 
