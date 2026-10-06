@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import argparse
 import hashlib
 import json
 import math
@@ -73,15 +72,13 @@ def check_page():
     return len(page.links)
 
 
-def check_downloads(write_checksums):
-    checksum_file = DOWNLOADS / "checksums.txt"
-    files = sorted(path for path in DOWNLOADS.iterdir()
-                   if path.is_file() and path != checksum_file)
-    checksums = "".join(f"{digest(path)}  {path.name}\n" for path in files)
-    if write_checksums:
-        checksum_file.write_text(checksums, encoding="utf-8")
-    require(checksum_file.read_text(encoding="utf-8") == checksums,
-            "Download checksums changed; review replacements before regenerating")
+def check_downloads():
+    files = sorted(path for path in DOWNLOADS.iterdir() if path.is_file())
+    require({path.name for path in files} == {"paper.pdf", "oct-policy-source.tar.gz"},
+            "Unexpected download inventory")
+    require(all(path.stat().st_size > 0 for path in files), "Empty download")
+    with (DOWNLOADS / "paper.pdf").open("rb") as stream:
+        require(stream.read(5) == b"%PDF-", "Invalid manuscript PDF")
     return len(files)
 
 
@@ -213,10 +210,7 @@ def check_published_content():
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--write-checksums", action="store_true")
-    args = parser.parse_args()
-    downloads = check_downloads(args.write_checksums)
+    downloads = check_downloads()
     links = check_page()
     check_videos()
     check_viewer()

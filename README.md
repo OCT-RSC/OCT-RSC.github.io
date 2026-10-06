@@ -26,7 +26,7 @@ dependency.
 | `app.js`              | Experiment tabs, results table, and copy controls               |
 | `volume-viewer.js`    | Interactive WebGL 2 volume and point-cloud viewer               |
 | `assets/`             | Published videos, viewer arrays, figures, and affiliation logos |
-| `downloads/`          | Manuscript, research-code package, and prepared example data    |
+| `downloads/`          | Manuscript and research-code package                           |
 | `tools/check_site.py` | Link, checksum, input-array, and media-coverage checks          |
 | `MEDIA.md`            | Visualization scope and asset provenance                        |
 
@@ -43,13 +43,6 @@ node --check app.js
 node --check volume-viewer.js
 ```
 
-After intentionally replacing a download, regenerate its checksums and run
-the checks again:
-
-```sh
-python3 tools/check_site.py --write-checksums
-```
-
 Keep the manuscript, the results in `app.js`, and the page text synchronized.
 Preserve the recorded-step pairing and media verification records when
 replacing videos. Visualization assets are not substitutes for the actual
@@ -62,4 +55,4 @@ folder **/ (root)**, and save. The `.nojekyll` file disables Jekyll processing:
 the site is served as ordinary static HTML, CSS, JavaScript, and assets.
 
 No repository-wide software license has been selected. Paper, research code,
-example data, and institutional logos may have separate distribution terms.
+and institutional logos may have separate distribution terms.

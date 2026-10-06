@@ -6,7 +6,7 @@
     <title>Robotic OCT-Guided Soft-Tissue Shape Control</title>
     <meta
       name="description"
-      content="Robotic OCT-guided geometric modeling of soft tissue. Paper, recorded robot experiments, three-dimensional input representations, research code, and example data."
+      content="Robotic OCT-guided geometric modeling of soft tissue. Paper, recorded robot experiments, three-dimensional input representations, and research code."
     />
     <meta
       name="citation_title"
@@ -30,7 +30,7 @@
     <a class="skip" href="#main">Skip to content</a>
     <nav class="page-nav" aria-label="Page navigation">
       <a href="#demonstrations">Demonstrations</a><a href="#method">Method</a
-      ><a href="#results">Results</a><a href="#resources">Code &amp; data</a>
+      ><a href="#results">Results</a><a href="#resources">Code</a>
     </nav>
     <main id="main">
       <header class="paper-header container">
@@ -90,9 +90,6 @@
             href="downloads/oct-policy-source.tar.gz"
             download
             >Code <span>↓</span></a
-          >
-          <a class="resource-button" href="#resources"
-            >Example data <span>↓</span></a
           >
         </div>
       </header>
@@ -251,7 +248,7 @@
         </p>
       </section>
       <section class="container" id="resources">
-        <h2>Code and example data</h2>
+        <h2>Code</h2>
         <p>
           Preprocessing, training, validation, and checkpoint inference in one
           PyTorch package.
@@ -265,44 +262,7 @@
               >PyTorch implementation with training configurations.</span
             >
           </li>
-          <li>
-            <a href="downloads/mini-point-cloud.tar.gz" download
-              >Small prepared dataset</a
-            >
-            <span
-              >Two real demonstrations for a short Point-cloud training run.</span
-            >
-          </li>
         </ul>
-        <details class="technical-details">
-          <summary>Quickstart</summary>
-          <p>
-            Download the source code and small dataset into the same directory,
-            then run:
-          </p>
-          <div class="code-heading">
-            <span>Python 3.10 or newer</span
-            ><button class="copy-button" data-copy="quickstart">Copy</button>
-          </div>
-          <pre
-            id="quickstart"
-          ><code>tar -xzf oct-policy-source.tar.gz
-tar -xzf mini-point-cloud.tar.gz
-cd oct_policy_open_source_release
-python -m pip install -r requirements.txt
-
-python train_policy.py \
-  --prepared ../mini_prepared_public_candidate_v2 \
-  --config configs/phantom_point_residual_bc.json \
-  --output outputs/mini --epochs 1</code></pre>
-          <p class="small-note">
-            This one-epoch example runs training and validation. Full training
-            and inference commands are in the source README.
-          </p>
-          <p class="small-note">
-            <a href="downloads/checksums.txt">File checksums</a>
-          </p>
-        </details>
       </section>
       <section class="container citation-section" id="citation">
         <h2>Citation</h2>

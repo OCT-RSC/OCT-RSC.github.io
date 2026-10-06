@@ -56,9 +56,6 @@ Array shapes, transfer-function settings, and asset hashes are recorded in
 - The manuscript and method figure come from the project paper.
 - `assets/logo-sources.json` records the official IGMR Lab and Michigan
   Robotics wordmark sources and their checksums.
-- The prepared training example contains two demonstrations. The quickstart
-  runs one epoch of Point-cloud training and validation, not a full
-  paper-performance experiment.
 
 No previous video drafts, local transfer logs, remote-machine credentials,
 or raw OCT acquisition folders are included in this repository.
