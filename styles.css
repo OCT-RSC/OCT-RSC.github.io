@@ -124,13 +124,8 @@ sup {
   height: auto;
   object-fit: contain;
 }
-.lab-logo {
-  background: #00274c;
-  padding: 7px 12px;
-  border-radius: 3px;
-}
 .lab-logo img {
-  width: 148px;
+  width: 172px;
 }
 .robotics-logo img {
   width: 224px;
@@ -140,7 +135,7 @@ sup {
     gap: 20px;
   }
   .lab-logo img {
-    width: 120px;
+    width: 132px;
   }
   .robotics-logo img {
     width: 164px;

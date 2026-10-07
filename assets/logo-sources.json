@@ -1,9 +1,9 @@
 {
   "igmr": {
-    "url": "https://medical.robotics.umich.edu/img/igmr-v3-horiz-path-white.svg",
+    "url": "https://medical.robotics.umich.edu/",
     "file": "igmr-lab.svg",
-    "sha256": "4ebe03f00a8ef233d97b5f759e2735839d16ad4bac3421473a0ee43a79f64fe8",
-    "changes": "None; official white logo displayed on navy."
+    "sha256": "d8ec42cb92304b204d23025d188f173c04ced80e10cfcbd0751b3603f20a6be1",
+    "changes": "None; supplied igmr-v3-horiz-path-black.svg."
   },
   "robotics": {
     "url": "https://robotics.umich.edu/",
