@@ -22,15 +22,18 @@
       type="image/svg+xml"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23293847'/%3E%3Cpath d='M5 10Q16 28 27 10M5 17Q16 30 27 17' fill='none' stroke='%239fbce4' stroke-width='2'/%3E%3Cpath d='M16 3v12' stroke='%23f0ab95' stroke-width='2'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="styles.css?v=20261007" />
+    <link rel="stylesheet" href="styles.css?v=20261008" />
     <script defer src="app.js?v=20261006-refined"></script>
     <script defer src="volume-viewer.js?v=20261006-refined"></script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <nav class="page-nav" aria-label="Page navigation">
-      <a href="#demonstrations">Demonstrations</a><a href="#method">Method</a
-      ><a href="#results">Results</a><a href="#resources">Code</a>
+      <a href="#abstract">Abstract</a>
+      <a href="#method">Method</a>
+      <a href="#representations">Representations</a>
+      <a href="#demonstrations">Videos</a>
+      <a href="#results">Results</a>
     </nav>
     <main id="main">
       <header class="paper-header container">
@@ -78,12 +81,15 @@
           </a>
         </div>
         <div class="paper-links">
+          <button class="resource-button" type="button" disabled>Paper</button>
           <a
             class="resource-button"
-            href="downloads/oct-policy-source.tar.gz"
-            download
-            >Code <span>↓</span></a
+            href="https://github.com/OCT-RSC/OCT-RSC.github.io/tree/main/code"
+            target="_blank"
+            rel="noopener"
+            >Code</a
           >
+          <button class="resource-button" type="button" disabled>Data</button>
         </div>
       </header>
       <section class="text-section container" id="abstract">
@@ -103,6 +109,8 @@
           feedback. We study full-volume, tissue-masked sparse-volume, and voxelized
           point-cloud representations, with or without residual conditioning, using
           deterministic (Explicit) and generative diffusion (Diffusion) policies.
+        </p>
+        <p>
           Across 12 configurations and 576 phantom rollouts on 3-DoF depth and 6-DoF
           directional tasks, OCT-derived 3D representations support both Explicit
           and Diffusion policies, with performance depending on representation and
@@ -117,55 +125,6 @@
           goal representations for learned closed-loop tissue shape control across
           deterministic and generative action models.
         </p>
-      </section>
-      <section
-        class="container demo-section"
-        id="demonstrations"
-        aria-labelledby="demo-title"
-      >
-        <h2 id="demo-title">Closed-loop tissue deformation</h2>
-        <div class="tabs demo-tabs" role="tablist" aria-label="Experiment">
-          <button role="tab" aria-selected="true" data-demo="depth">
-            Phantom depth
-          </button>
-          <button role="tab" aria-selected="false" data-demo="tilt">
-            Phantom tilt direction
-          </button>
-          <button role="tab" aria-selected="false" data-demo="exvivo">
-            Ex vivo
-          </button>
-        </div>
-        <div
-          class="demo-stage"
-          id="demo-panel"
-          role="tabpanel"
-          aria-label="Phantom depth closed-loop deformation"
-        >
-          <img
-            id="demo-poster"
-            src="assets/all-targets-depth-poster.png"
-            width="3840"
-            height="2160"
-            alt="Phantom depth OCT deformation with a fixed target overlay and RGB contact inset"
-          />
-          <video
-            id="demo-video"
-            controls
-            loop
-            muted
-            playsinline
-            preload="metadata"
-            hidden
-            aria-label="Recorded OCT and RGB closed-loop experiment"
-          ></video>
-        </div>
-        <div class="demo-caption">
-          <p id="demo-description">
-            Closed-loop phantom deformation toward different target depths.
-            Blue: observation; salmon: target. RGB shows the same recorded step.
-          </p>
-        </div>
-        <p class="small-note" id="recording-note" hidden></p>
       </section>
       <section class="container" id="method">
         <h2>Method overview</h2>
@@ -219,8 +178,57 @@
           </div>
         </div>
       </section>
+      <section
+        class="container demo-section"
+        id="demonstrations"
+        aria-labelledby="demo-title"
+      >
+        <h2 id="demo-title">Closed-loop tissue deformation</h2>
+        <div class="tabs demo-tabs" role="tablist" aria-label="Experiment">
+          <button role="tab" aria-selected="true" data-demo="depth">
+            Phantom depth
+          </button>
+          <button role="tab" aria-selected="false" data-demo="tilt">
+            Phantom tilt direction
+          </button>
+          <button role="tab" aria-selected="false" data-demo="exvivo">
+            Ex vivo
+          </button>
+        </div>
+        <div
+          class="demo-stage"
+          id="demo-panel"
+          role="tabpanel"
+          aria-label="Phantom depth closed-loop deformation"
+        >
+          <img
+            id="demo-poster"
+            src="assets/all-targets-depth-poster.png"
+            width="3840"
+            height="2160"
+            alt="Phantom depth OCT deformation with a fixed target overlay and RGB contact inset"
+          />
+          <video
+            id="demo-video"
+            controls
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            hidden
+            aria-label="Recorded OCT and RGB closed-loop experiment"
+          ></video>
+        </div>
+        <div class="demo-caption">
+          <p id="demo-description">
+            Closed-loop phantom deformation toward different target depths.
+            Blue: observation; salmon: target. RGB shows the same recorded step.
+          </p>
+        </div>
+        <p class="small-note" id="recording-note" hidden></p>
+      </section>
       <section class="container" id="results">
-        <h2>Phantom results</h2>
+        <h2>Numerical results</h2>
         <p>
           Twelve configurations are evaluated in 576 closed-loop rollouts over
           three deployment sweeps. Lower Shape RMSE indicates closer observed
@@ -250,23 +258,6 @@
           Residual conditioning lowers final error in nine of twelve matched
           comparisons.
         </p>
-      </section>
-      <section class="container" id="resources">
-        <h2>Code</h2>
-        <p>
-          Preprocessing, training, validation, and checkpoint inference in one
-          PyTorch package.
-        </p>
-        <ul class="downloads">
-          <li>
-            <a href="downloads/oct-policy-source.tar.gz" download
-              >Source code</a
-            >
-            <span
-              >PyTorch implementation with training configurations.</span
-            >
-          </li>
-        </ul>
       </section>
       <section class="container citation-section" id="citation">
         <h2>Citation</h2>

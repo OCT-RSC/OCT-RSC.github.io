@@ -1,0 +1,8 @@
+{
+  "extends": "base.json",
+  "experiment_name": "phantom_full_volume_no_residual_bc",
+  "material": "phantom",
+  "representation": "full_volume",
+  "use_residual": false,
+  "head": "deterministic_bc"
+}

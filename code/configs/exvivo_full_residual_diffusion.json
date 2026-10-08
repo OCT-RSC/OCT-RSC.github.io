@@ -1,0 +1,8 @@
+{
+  "extends": "base.json",
+  "experiment_name": "exvivo_full_volume_with_residual_diffusion",
+  "material": "exvivo",
+  "representation": "full_volume",
+  "use_residual": true,
+  "head": "diffusion"
+}

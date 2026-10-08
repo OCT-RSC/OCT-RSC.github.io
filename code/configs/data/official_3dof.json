@@ -1,0 +1,13 @@
+{
+  "include_prefixes": {
+    "phantom": [
+      "exp_phantom/set_3dof_2mm",
+      "exp_phantom/set_3dof_3mm",
+      "exp_phantom/set_3dof_4mm",
+      "exp_phantom/set_3dof_5mm"
+    ],
+    "exvivo": [
+      "exvivo/official_3dof"
+    ]
+  }
+}

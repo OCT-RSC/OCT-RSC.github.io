@@ -1,0 +1,10 @@
+{
+  "extends": "base.json",
+  "experiment_name": "phantom_tissue_only_with_residual_diffusion",
+  "material": "phantom",
+  "representation": "tissue_only",
+  "sparse_backend": "native_pytorch",
+  "sparse_backend_version": "native_sparse_cnn_v1",
+  "use_residual": true,
+  "head": "diffusion"
+}

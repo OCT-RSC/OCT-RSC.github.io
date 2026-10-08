@@ -1,0 +1,10 @@
+{
+  "include_prefixes": {
+    "phantom": [
+      "exp_phantom/official_6dof"
+    ],
+    "exvivo": [
+      "exvivo/official_6dof"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "extends": "base.json",
+  "experiment_name": "phantom_point_cloud_no_residual_bc",
+  "material": "phantom",
+  "representation": "point_cloud",
+  "use_residual": false,
+  "head": "deterministic_bc"
+}

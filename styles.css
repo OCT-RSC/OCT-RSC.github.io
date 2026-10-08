@@ -50,6 +50,7 @@ a {
 }
 .page-nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 32px;
   padding: 14px 24px;
@@ -143,8 +144,10 @@ sup {
 }
 .resource-button {
   display: inline-flex;
-  gap: 18px;
   align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  border: 0;
   text-decoration: none;
   color: #fff;
   background: #303940;
@@ -152,19 +155,15 @@ sup {
   padding: 7px 18px;
   font-size: 15px;
 }
-.resource-button:hover {
+.resource-button:hover:not(:disabled) {
   background: #4c5964;
 }
-.resource-button span {
-  opacity: 0.7;
-  font-size: 14px;
+.resource-button:disabled {
+  cursor: default;
 }
 section.container {
   padding-top: 48px;
   padding-bottom: 10px;
-}
-section.demo-section {
-  padding-top: 18px;
 }
 h2 {
   text-align: center;

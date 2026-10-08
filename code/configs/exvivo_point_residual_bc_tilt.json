@@ -1,0 +1,8 @@
+{
+  "extends": "base.json",
+  "experiment_name": "exvivo_point_cloud_with_residual_bc_6dof",
+  "material": "exvivo",
+  "representation": "point_cloud",
+  "use_residual": true,
+  "head": "deterministic_bc"
+}

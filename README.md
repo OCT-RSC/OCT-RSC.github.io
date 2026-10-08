@@ -5,3 +5,5 @@ Modeling of Soft Tissue: 3D Representations for Data-Driven Closed-Loop
 Shape Control**.
 
 **Website:** https://oct-rsc.github.io/
+
+**Code and checkpoints:** [code/](code/)
